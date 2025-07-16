@@ -1,18 +1,38 @@
-# Method Details
-![Figure 2](./imgs/method.png)  
-*Figure: Architecture of CCA-Attention with two complementary modules*
+# Our Method: Performance-Oriented Query Decomposition (POQD) 
 
-## 1. Globality-aware Pooling Module
+When teaching LLMs to Decompose Queries Smartly,  **two major challenges arise.** 
 
-**Dynamic Token Compression**: Groups input tokens and compresses each group into a *core token* via importance-weighted pooling.  
-**Linear Complexity**: Reduces attention computation from $O(L^2)$ to $O(Lm)$ (where $m = L/g$).  
+1. Query decomposition is non-differentiable
+2. Evaluating each decomposition requires fine-tuning downstream RAG models, which is computationally expensive and incurs high overhead.
 
-## 2. Locality-preserving Module  
+![Figure 4](./imgs/met1.png)  
+*Figure: challenges of POQD*
 
-**Neighborhood Focus**: Captures fine-grained local context by attending to $$s$$ nearest tokens.  
-**Complementary to Global Context**: Ensures no loss of critical local information.  
+To overcome these, POQD introduces a new paradigm.
+1. using a LLM as an optimizer.
+2. An end-to-end alternating training algorithm further improves efficiency.
 
-## 3. Differentiable Fusion  
 
-Combines global (core tokens) and local (neighbor tokens) attention scores.  
-**Full Reachability Guarantee**: Each token can access all preceding tokens.  
+## 1. How POQD Works?
+
+POQD is built around a novel optimization framework designed to automatically discover the best way to decompose complex queries for multi-vector retrieval and RAG tasks. It consists of two cooperating components:
+
+| Component            | Role                                                         |
+| -------------------- | ------------------------------------------------------------ |
+| **Query Decomposer** | Leverages a large language model (LLM) to transform the input query into a set of sub-queries, using a learnable prompt. It adaptively selects salient token groups and determines the optimal decomposition granularity. |
+| **Prompt Optimizer** | A second LLM responsible for learning and refining the prompt fed into the decomposer. It updates the prompt to maximize downstream performance , without relying on gradient-based learning. |
+
+
+## 2. Optimization Loop
+
+1. **Initialize with a random prompt** for query decomposition.
+2. **Generate sub-queries** from the input query using the LLM-based decomposer guided by the current prompt.
+3. **Perform multi-vector retrieval (MVR)** using these sub-queries, and pass the retrieved contexts to the downstream RAG model (e.g., a generator).
+4. **Evaluate performance** using downstream metrics such as loss or exact match (EM) scores.
+5. **Update the prompt** through the prompt optimizer (another LLM), using black-box optimization based on past performance.
+6. **Repeat the loop**, alternating between decomposer and optimizer, until performance converges.
+
+The entire process is **gradient-free, and end-to-end** — enabling joint optimization of query decomposition and downstream modules even in non-differentiable settings.
+
+![Figure 5](./imgs/met2.png)  
+*Figure: Overview of POQD*

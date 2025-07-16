@@ -46,14 +46,17 @@ const authors = [
 const addresses = [
   {
     address_flag: "1",
+    icon: "./institute_logo/ruc.png",
     name: "Renmin University of China",
   },
   {
     address_flag: "2",
+    icon: "./institute_logo/pku.png",
     name: "Peking University",
   },
   {
     address_flag: "3",
+    icon: "./institute_logo/thu.png",
     name: "Tsinghua University",
   },
   // {

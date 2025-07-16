@@ -9,25 +9,25 @@ While advances in large language models (LLMs) have dramatically improved genera
 ![Figure 1](./imgs/mot0.png)  
 
 ## 1. Why does traditional dense retrieval fail?
-When a user asks, "Victoria Hong Kong has many what type of buildings? , as the figure shown. Traditional dense retrieval turns the whole question into one vector and matches it with image vectors.
+When a user asks, "Victoria Hong Kong has many what type of buildings? , as the figure 2 shown. Traditional dense retrieval turns the whole question into one vector and matches it with image vectors.
 
 **The issue is**: this method misses fine details in both the question and the images, causing inaccurate results.
 
 ![img](./imgs/mot1.png)
-*Figure 2: traditional dense retrieval*
+*Figure 2: Traditional dense retrieval.*
 
 ## 2. Why does ColBERT fail?
-**Multi-vector Retrieval (MVR)** offers a better approach by breaking queries and images into smaller parts.It splits queries into tokens, documents into tokens, and images into patches — then compares them using **MaxSim** to get more accurate results.
+**Multi-vector Retrieval (MVR)** offers a better approach by breaking queries and images into smaller parts.It splits queries into tokens, documents into tokens, and images into patches - then compares them using **MaxSim** to get more accurate results.
 
 However, existing methods like ColBERT often suffer from over-fragmentation. 
 
-As shown in the figure, ColBERT splits the query 'Hong Kong' into 'Hong' and 'Kong', and matches each token separately to image patches. This can lead to spurious matches—for example, the token 'Kong' may align with dark regions resembling a gorilla, causing irrelevant images (e.g., of Lee Kuan Yew) to rank higher than the actual target. This illustrates the risk of token-level decomposition and underscores the need for coarser, phrase-level query representations in MVR.
+As shown in the figure 3, ColBERT splits the query 'Hong Kong' into 'Hong' and 'Kong', and matches each token separately to image patches. This can lead to spurious matches—for example, the token 'Kong' may align with dark regions resembling a gorilla, causing irrelevant images (e.g., of Lee Kuan Yew) to rank higher than the actual target. This illustrates the risk of token-level decomposition and underscores the need for coarser, phrase-level query representations in MVR.
 
 ![Figure 3](./imgs/mot2.png)  
 *Figure 3: ColBERT method*
 
 ## 3. Why further optimize query decomposition?
-As we’ve seen, traditional methods like ColBERT often result in fragmented sub-queries that fail to capture the full context, leading to irrelevant matches. We can also manually craft prompts for LLMs to generate decomposed sub-queries (Li et al., 2024), such as "Victoria Hong Kong," "building," and "type," this approach can still retrieve less relevant results. Compared to our optimized approach, this method introduces a less informative sub-query, “type,” which disturbs similarity scoring and reduces accuracy.
+As we've seen, traditional methods like ColBERT often result in fragmented sub-queries that fail to capture the full context, leading to irrelevant matches. We can also manually craft prompts for LLMs to generate decomposed sub-queries (Li et al., 2024), such as "Victoria Hong Kong," "building," and "type," this approach can still retrieve less relevant results. Compared to our optimized approach, this method introduces a less informative sub-query, "type", which disturbs similarity scoring and reduces accuracy.
 
 **Therefore, a closer look reveals a surprisingly overlooked yet critical issue in MVR:**
 

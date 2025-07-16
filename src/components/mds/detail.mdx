@@ -6,9 +6,9 @@ When teaching LLMs to Decompose Queries Smartly,  **two major challenges arise.*
 2. Evaluating each decomposition requires fine-tuning downstream RAG models, which is computationally expensive and incurs high overhead.
 
 ![Figure 4](./imgs/met1.png)  
-*Figure: challenges of POQD*
+*Figure: Challenges of POQD.*
 
-To overcome these, POQD introduces a new paradigm.
+** To overcome these, POQD introduces a new paradigm.**
 1. using a LLM as an optimizer.
 2. An end-to-end alternating training algorithm further improves efficiency.
 
@@ -20,7 +20,7 @@ POQD is built around a novel optimization framework designed to automatically di
 | Component            | Role                                                         |
 | -------------------- | ------------------------------------------------------------ |
 | **Query Decomposer** | Leverages a large language model (LLM) to transform the input query into a set of sub-queries, using a learnable prompt. It adaptively selects salient token groups and determines the optimal decomposition granularity. |
-| --------------------------------- | ------------------------------------------- | -------------------------------------------------- |
+| ---------------------| ------------------------------------------------------------ |
 | **Prompt Optimizer** | A second LLM responsible for learning and refining the prompt fed into the decomposer. It updates the prompt to maximize downstream performance , without relying on gradient-based learning. |
 
 
@@ -36,4 +36,4 @@ POQD is built around a novel optimization framework designed to automatically di
 The entire process is **gradient-free, and end-to-end** — enabling joint optimization of query decomposition and downstream modules even in non-differentiable settings.
 
 ![Figure 5](./imgs/met2.png)  
-*Figure: Overview of POQD*
+*Figure 5: Overview of POQD.*

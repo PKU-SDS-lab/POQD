@@ -1,5 +1,5 @@
 <script setup>
-import page from '../mds/detail.mdx';
+import page from '../mds/motivation.mdx';
 </script>
 
 <template>

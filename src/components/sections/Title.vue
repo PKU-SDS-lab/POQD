@@ -7,13 +7,13 @@ import { Document, Files, MagicStick, Picture, DataAnalysis, Film } from '@eleme
 const logo = './logo.png'
 
 // 标题
-const title = 'Core Context Aware Transformers for Long Context Language Modeling'
+const title = 'POQD: Performance-Oriented Query Decomposer for Multi-vector retrieval'
 
 // 标题颜色
 const title_color = '#000000'
 
 // 标题补充，没有则置为''即可
-const title_supp = ' (CCA-Attention)'
+const title_supp = ' (Teaching LLMs to Decompose Queries Smartly)'
 
 // 标题补充颜色
 const title_supp_color = '#42B883'
@@ -24,34 +24,20 @@ const btn_color = '#444444'
 // 作者清单（包含作者姓名、头像、主页、地址序号）
 const authors = [
   {
-    name: "Yaofo Chen",
-    homepage: "https://chenyaofo.com/",
-    address_flag: "1,*"
-  },
-  {
-    name: "Zeng You",
-    homepage: "https://www.youzeng.com.cn/",
-    address_flag: "1,2,*"
-  },
-  {
-    name: "Shuhai Zhang",
-    address_flag: "1,3,*"
-  },
-  {
-    name: "Haokun Li",
-    address_flag: "1,2"
-  },
-  {
-    name: "Yirui Li",
+    name: "Yaoyang Liu",
     address_flag: "1"
   },
   {
-    name: "Yaowei Wang",
-    address_flag: "2,4,#"
+    name: "Junlin Li",
+    address_flag: "2"
   },
   {
-    name: "Mingkui Tan",
-    address_flag: "1,3,5#"
+    name: "Yinjun Wu",
+    address_flag: "2,*"
+  },
+  {
+    name: "Zhen Chen",
+    address_flag: "3"
   }
   
 ]
@@ -60,42 +46,30 @@ const authors = [
 const addresses = [
   {
     address_flag: "1",
-    name: "South China University of Technology",
-    icon: "./institute_logo/scut.png",
-    homepage: "https://www.scut.edu.cn/new/"
+    name: "Renmin University of China",
   },
   {
     address_flag: "2",
-    name: "Peng Cheng Laboratory",
-    icon: "./institute_logo/pcl.png",
-    homepage: "https://www.pcl.ac.cn/"
+    name: "Peking University",
   },
   {
     address_flag: "3",
-    name: "Pazhou Laboratory",
-    icon: "./institute_logo/pzl.png",
-    homepage: "https://www.pazhoulab.com/"
+    name: "Tsinghua University",
   },
-  {
-    address_flag: "4",
-    name: "Harbin Institute of Technology",
-    icon: "./institute_logo/hit.png",
-    homepage: "https://www.hit.edu.cn/"
-  },
-  {
-    address_flag: "5",
-    name: "Key Laboratory of Big Data and Intelligent Robot, Ministry of Education",
-    icon: "./institute_logo/scut.png",
-    homepage: ""
-  },
+  // {
+  //   address_flag: "5",
+  //   name: "Key Laboratory of Big Data and Intelligent Robot, Ministry of Education",
+  //   icon: "./institute_logo/scut.png",
+  //   homepage: ""
+  // },
 ]
 
 // 共一和通讯提示
 const con_and_corresponding_author = 
-  "*: Equal Contribution. #: Corresponding Author."
+  "*: Corresponding Author."
 
 // 最新消息
-const news = "🔥 Two works are accepted by ICML 2025."
+const news = "🔥 Accepted by ICML 2025."
 
 // 强调内容
 const emphases = [
@@ -107,25 +81,25 @@ const buttons = [
   {
     disabled: false,
     name: "Paper",
-	link: "https://arxiv.org/pdf/2412.12465",
+	link: "https://arxiv.org/abs/2505.19189",
     component: Document,
   },
-  {
-    disabled: false,
-    name: "Poster",
-	link: "https://www.youzeng.com.cn/poster/CCA_Poster.pdf",
-    component: Picture,
-  },
-  {
-    disabled: false,
-    name: "Slides",
-	link: "https://www.youzeng.com.cn/slides/CCA_Attention_slides.pdf",
-    component: DataAnalysis,
-  },
+  // {
+  //   disabled: false,
+  //   name: "Poster",
+	// link: "https://www.youzeng.com.cn/poster/CCA_Poster.pdf",
+  //   component: Picture,
+  // },
+  // {
+  //   disabled: false,
+  //   name: "Slides",
+	// link: "https://www.youzeng.com.cn/slides/CCA_Attention_slides.pdf",
+  //   component: DataAnalysis,
+  // },
   {
     disabled: false,
     name: "Code",
-    link: "https://github.com/bolixinyu/FDVS",
+    link: "https://github.com/PKU-SDS-lab/POQD-ICML25",
     component: Files,
   },
 ]
@@ -138,7 +112,7 @@ const buttons = [
     <!-- 最新消息提示 -->
     <el-row justify="center">
       <el-col :span="24">
-        <el-alert title="🔥 two new works on efficient attention are accepted by ICML 2025" type="success" />
+        <el-alert title="🔥 accepted by ICML 2025" type="success" />
       </el-col>
     </el-row>
 

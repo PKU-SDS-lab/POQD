@@ -1,18 +1,34 @@
-# Method Details
-![Figure 2](./imgs/method.png)  
-*Figure: Architecture of CCA-Attention with two complementary modules*
+# Motivation: In Retrieval-Augmented Generation, key information in questions Matters.
 
-## 1. Globality-aware Pooling Module
+Retrieval-Augmented Generation (RAG) has become a dominant paradigm for open-domain question answering, enterprise search, and knowledge-intensive reasoning. Its typical workflow is:
 
-**Dynamic Token Compression**: Groups input tokens and compresses each group into a *core token* via importance-weighted pooling.  
-**Linear Complexity**: Reduces attention computation from $O(L^2)$ to $O(Lm)$ (where $m = L/g$).  
+> User query → Document retrieval → LLM-based answer generation
 
-## 2. Locality-preserving Module  
+While advances in large language models (LLMs) have dramatically improved generation quality, many systems still fail when the **retrieval step is weak** and there are several challenges in dense retrieval.
 
-**Neighborhood Focus**: Captures fine-grained local context by attending to $$s$$ nearest tokens.  
-**Complementary to Global Context**: Ensures no loss of critical local information.  
+![Figure 1](./imgs/mot0.png)  
 
-## 3. Differentiable Fusion  
+## 1. Why does traditional dense retrieval fail?
+When a user asks, *"*Victoria Hong Kong has many what type of buildings? , as the figure shown. Traditional dense retrieval turns the whole question into one vector and matches it with image vectors.
 
-Combines global (core tokens) and local (neighbor tokens) attention scores.  
-**Full Reachability Guarantee**: Each token can access all preceding tokens.  
+**The issue is**: this method misses fine details in both the question and the images, causing inaccurate results.
+
+![img](./imgs/mot1.png)
+*Figure 1: traditional dense retrieval*
+
+## 2. Why does ColBERT fail?
+**Multi-vector Retrieval (MVR)** offers a better approach by breaking queries and images into smaller parts.It splits queries into tokens, documents into tokens, and images into patches — then compares them using **MaxSim** to get more accurate results.
+
+However, existing methods like ColBERT often suffer from over-fragmentation. 
+
+As shown in the figure, ColBERT splits the query 'Hong Kong' into 'Hong' and 'Kong', and matches each token separately to image patches. This can lead to spurious matches—for example, the token 'Kong' may align with dark regions resembling a gorilla, causing irrelevant images (e.g., of Lee Kuan Yew) to rank higher than the actual target. This illustrates the risk of token-level decomposition and underscores the need for coarser, phrase-level query representations in MVR.
+
+![Figure 2](./imgs/mot2.png)  
+*Figure 2: ColBERT method*
+
+## 3. Why further optimize query decomposition?
+As we’ve seen, traditional methods like ColBERT often result in fragmented sub-queries that fail to capture the full context, leading to irrelevant matches. We can also manually craft prompts for LLMs to generate decomposed sub-queries (Li et al., 2024), such as "Victoria Hong Kong," "building," and "type," this approach can still retrieve less relevant results. Compared to our optimized approach, this method introduces a less informative sub-query, “type,” which disturbs similarity scoring and reduces accuracy.
+
+**Therefore, a closer look reveals a surprisingly overlooked yet critical issue in MVR:**
+
+> **How should we decompose the query?** while simultaneously retaining important information and preserving the semantic integrity of tokens.

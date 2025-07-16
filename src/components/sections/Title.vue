@@ -202,7 +202,7 @@ const buttons = [
 .paper-sub-title {
   font-family: "MyFont", Verdana, sans-serif;
   letter-spacing: 2px;
-  font-size: 36px;
+  font-size: 28px;
   margin: 32px;
   text-align: center;
 }

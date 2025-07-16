@@ -6,6 +6,7 @@ import Detail from './sections/Detail.vue'
 import Result from './sections/Result.vue'
 import BibTeX from './sections/BibTeX.vue'
 import Motivation from './sections/Motivation.vue'
+import Conclusion from './sections/Conclusion.vue'
 export default {
   components: {
     Title,
@@ -14,6 +15,7 @@ export default {
     // Overview,
 	  Detail,
 	  Result,
+    Conclusion,
     BibTeX
   }
 }
@@ -26,5 +28,6 @@ export default {
   <!-- <Overview/> -->
   <Detail/>
   <Result/>
+  <Conclusion/>
   <BibTeX/>
 </template>

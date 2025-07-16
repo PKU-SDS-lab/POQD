@@ -1,16 +1,36 @@
-# Results
-## 1. Long Context Modeling Performance  
-Outperforms StreamingLLM, LM-Infinite, and MInference on average scores
+# Result and Performance
+## 1. Time analysis  
+Our training is more complex, so a key question is: **Does POQD add a lot of overhead?** **The answer is no.** Across multiple QA benchmarks, POQD adds **only slight overhead** compared to the original pipeline.
 
-![img](./imgs/longbench.png)
-*Table 1: Performance on LongBench-E (higher is better)*
+This **solves Challenge 2** — we get better performance **without major computational cost**.
 
-## 2. Computational Efficiency  
-![Figure 4](./imgs/efficiency.png)  
-*Figure 4: Latency and memory comparison with SOTA methods*
++ **Training Efficiency**
 
-## 3. Inference Flexibility
-Adjustable group size $g$ and window size $s$ enable trade-offs between speed and accuracy.
+As shown in **Figure on the left **, the vast majority of training time is spent on fine-tuning the generator. The **prompt optimization component adds only negligible overhead**, confirming that POQD’s training pipeline remains lightweight and scalable.
 
-![Figure 3](./imgs/flexity.png)  
-*Figure 3: Trade-off between latency and accuracy via adjustable $g$ and $s$*
++ **Inference Efficiency**
+
+**Figure on the right** breaks down inference time into generation, retrieval, and query decomposition. The **decomposition step accounts for a tiny fraction** of total latency — far less than generation or retrieval — making POQD **deployment-friendly even in real-time settings**.
+
+
+![img](./imgs/res1.png)
+*Result 1: Time analysis *
+
+## 2. Performance analysis   
+We tested POQD on various QA benchmarks — including single-hop, multi-hop, image QA, and text QA. 
+
+**POQD outperforms the best existing query decomposition methods in both retrieval accuracy and QA performance.**
+
+![Figure 7](./imgs/efficiency.png)  
+*Table: Performance comparison with SOTA methods*
+
+## 3. A Motivating Example
+> Query: *"Victoria Hong Kong has many what type of buildings?"*
+
+| Method                            | Sub-Queries                                 | Result                                             |
+| --------------------------------- | ------------------------------------------- | -------------------------------------------------- |
+| ColBERT                           | ["Victoria", "Hong", "Kong", "buildings"]   | ❌ Matches "Kong" dark regions resembling a gorilla |
+| ICL-QD (craft prompts for LLMs  ) | ["Victoria Hong Kong", "buildings", "type"] | ⚠️ Extra token "type" adds noise                    |
+| **POQD**                          | **["Victoria Hong Kong", "buildings"]**     | ✅ Correctly retrieves skyscraper images            |
+
+POQD filters out noisy sub-queries and preserves meaningful semantic units.

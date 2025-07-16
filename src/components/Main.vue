@@ -5,13 +5,15 @@ import Overview from './sections/Overview.vue'
 import Detail from './sections/Detail.vue'
 import Result from './sections/Result.vue'
 import BibTeX from './sections/BibTeX.vue'
+import Motivation from './sections/Motivation.vue'
 export default {
   components: {
     Title,
     Abstract,
-    Overview,
-	Detail,
-	Result,
+    Motivation,
+    // Overview,
+	  Detail,
+	  Result,
     BibTeX
   }
 }
@@ -20,7 +22,8 @@ export default {
 <template>
   <Title/>
   <Abstract/>
-  <Overview/>
+  <Motivation/>
+  <!-- <Overview/> -->
   <Detail/>
   <Result/>
   <BibTeX/>

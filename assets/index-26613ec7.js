@@ -51,7 +51,7 @@ var US=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);var TG=US((Zn,Qn)
 `]}),`
 `,Ce(t.p,{children:[Ce(t.img,{src:"./imgs/met1.png",alt:"Figure 4"}),Ce(t.br,{}),`
 `,Ce(t.em,{children:"Figure: Challenges of POQD."})]}),`
-`,Ce(t.p,{children:"** To overcome these, POQD introduces a new paradigm.**"}),`
+`,Ce(t.p,{children:Ce(t.strong,{children:"To overcome these, POQD introduces a new paradigm."})}),`
 `,Ce(t.ol,{children:[`
 `,Ce(t.li,{children:"using a LLM as an optimizer."}),`
 `,Ce(t.li,{children:"An end-to-end alternating training algorithm further improves efficiency."}),`

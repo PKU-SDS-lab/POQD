@@ -13,7 +13,7 @@ const title = 'POQD: Performance-Oriented Query Decomposer for Multi-vector retr
 const title_color = '#000000'
 
 // 标题补充，没有则置为''即可
-const title_supp = ' (Teaching LLMs to Decompose Queries Smartly)'
+const title_supp = ' - Teaching LLMs to Decompose Queries Smartly'
 
 // 标题补充颜色
 const title_supp_color = '#42B883'

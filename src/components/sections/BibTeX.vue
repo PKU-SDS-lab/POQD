@@ -3,12 +3,21 @@ export default {
   data() {
     return {
       bibtex: [
-        "@inproceedings{chen2025core,",
-        "  title={Core Context Aware Transformers for Long Context Language Modeling}, ",
-        "  author={Yaofo Chen and Zeng You and Shuhai Zhang and Haokun Li and Yirui Li and Yaowei Wang and Mingkui Tan},",
-        "  booktitle={International Conference on Machine Learning},",
-        "  year={2025}",
+        "@misc{liu2025poqdperformanceorientedquerydecomposer,",
+        "  title={POQD: Performance-Oriented Query Decomposer for Multi-vector retrieval},",
+        "  author={Yaoyang Liu and Junlin Li and Yinjun Wu and Zhen Chen},",
+        "  year={2025},",
+        "  eprint={2505.19189},",
+        "  archivePrefix={arXiv},",
+        "  primaryClass={cs.IR},",
+        "  url={https://arxiv.org/abs/2505.19189},",
         "}",
+        // "@inproceedings{chen2025core,",
+        // "  title={Core Context Aware Transformers for Long Context Language Modeling}, ",
+        // "  author={Yaofo Chen and Zeng You and Shuhai Zhang and Haokun Li and Yirui Li and Yaowei Wang and Mingkui Tan},",
+        // "  booktitle={International Conference on Machine Learning},",
+        // "  year={2025}",
+        // "}",
       ],
     }
   },

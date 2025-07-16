@@ -29,10 +29,12 @@ const authors = [
   },
   {
     name: "Junlin Li",
+    homepage: "https://jacklee2111.github.io/",
     address_flag: "2"
   },
   {
     name: "Yinjun Wu",
+    homepage: "https://wuyinjun-1993.github.io/",
     address_flag: "2,*"
   },
   {

@@ -21,7 +21,7 @@ We tested POQD on various QA benchmarks — including single-hop, multi-hop, ima
 
 **POQD outperforms the best existing query decomposition methods in both retrieval accuracy and QA performance.**
 
-![Figure 7](./imgs/efficiency.png)  
+![Figure 7](./imgs/res2.png)  
 *Table: Performance comparison with SOTA methods*
 
 ## 3. A Motivating Example
@@ -30,7 +30,9 @@ We tested POQD on various QA benchmarks — including single-hop, multi-hop, ima
 | Method                            | Sub-Queries                                 | Result                                             |
 | --------------------------------- | ------------------------------------------- | -------------------------------------------------- |
 | ColBERT                           | ["Victoria", "Hong", "Kong", "buildings"]   | ❌ Matches "Kong" dark regions resembling a gorilla |
+| --------------------------------- | ------------------------------------------- | -------------------------------------------------- |
 | ICL-QD (craft prompts for LLMs  ) | ["Victoria Hong Kong", "buildings", "type"] | ⚠️ Extra token "type" adds noise                    |
+| --------------------------------- | ------------------------------------------- | -------------------------------------------------- |
 | **POQD**                          | **["Victoria Hong Kong", "buildings"]**     | ✅ Correctly retrieves skyscraper images            |
 
 POQD filters out noisy sub-queries and preserves meaningful semantic units.

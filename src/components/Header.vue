@@ -3,29 +3,29 @@
 import { ElIcon } from 'element-plus'
 import { HomeFilled, SuccessFilled } from '@element-plus/icons-vue'
 
-// 个人主页
-const home = {
-    name: "My Blog",
-    link: "https://www.youzeng.com.cn/",
-}
+// // 个人主页
+// const home = {
+//     name: "My Blog",
+//     link: "https://www.youzeng.com.cn/",
+// }
 
-// 项目主页
-const logo = {
-    name: "CCA-Attention",
-    link: "#",
-}
+// // 项目主页
+// const logo = {
+//     name: "CCA-Attention",
+//     link: "#",
+// }
 
-// 右侧更多菜单
-const more_paper = {
-    "FDVS": {
-        name: "FDVS - IEEE TCSVT 2024",
-        link: "https://bolixinyu.github.io/FDVS/",
-    },
-    "DGA": {
-        name: "DGA - ICML 2025",
-        link: "https://github.com/bolixinyu/DynamicGroupAttention",
-    }
-}
+// // 右侧更多菜单
+// const more_paper = {
+//     "FDVS": {
+//         name: "FDVS - IEEE TCSVT 2024",
+//         link: "https://bolixinyu.github.io/FDVS/",
+//     },
+//     "DGA": {
+//         name: "DGA - ICML 2025",
+//         link: "https://github.com/bolixinyu/DynamicGroupAttention",
+//     }
+// }
 
 </script>
 
@@ -41,19 +41,19 @@ const more_paper = {
         :ellipsis="false"
     >
         <!-- 个人主页 -->
-        <el-menu-item index="0" >
+        <!-- <el-menu-item index="0" >
             <el-icon :size="20"><HomeFilled /></el-icon>
             <a :href=home.link>{{ home.name }} </a>
-        </el-menu-item>
+        </el-menu-item> -->
         
         <!-- 项目主页 -->
-        <el-menu-item index="1">
+        <!-- <el-menu-item index="1">
             <el-icon :size="20"><SuccessFilled /></el-icon>
             <a :href=logo.link>{{ logo.name }} </a>
-        </el-menu-item>
+        </el-menu-item> -->
 
         <!-- 更多栏目 -->
-        <el-sub-menu index="2">
+        <!-- <el-sub-menu index="2">
             <template #title>More</template>
             <el-menu-item index="2-1">
                 <a :href=more_paper.FDVS.link>{{ more_paper.FDVS.name }}</a>
@@ -61,7 +61,7 @@ const more_paper = {
             <el-menu-item index="2-2">
                 <a :href=more_paper.DGA.link>{{ more_paper.DGA.name }}</a>
             </el-menu-item>
-        </el-sub-menu>
+        </el-sub-menu> -->
 
     </el-menu>
     </el-affix>

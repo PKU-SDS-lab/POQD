@@ -112,7 +112,7 @@ const buttons = [
     <!-- 最新消息提示 -->
     <el-row justify="center">
       <el-col :span="24">
-        <el-alert title="🔥 accepted by ICML 2025" type="success" />
+        <el-alert title="🔥 Accepted by ICML 2025!" type="success" />
       </el-col>
     </el-row>
 

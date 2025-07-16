@@ -121,6 +121,16 @@ const buttons = [
       <el-col :span="20">
         <h1 class="paper-title">
           <span v-if="title" :style="{color:title_color}"> {{ title }}</span>
+          <!-- <span v-if="title_supp" :style="{color:title_supp_color}"> {{ title_supp }}</span> -->
+        </h1>
+      </el-col>
+    </el-row>
+
+    <!-- 文章标题 -->
+    <el-row justify="center">
+      <el-col :span="20">
+        <h1 class="paper-sub-title">
+          <!-- <span v-if="title" :style="{color:title_color}"> {{ title }}</span> -->
           <span v-if="title_supp" :style="{color:title_supp_color}"> {{ title_supp }}</span>
         </h1>
       </el-col>
@@ -185,6 +195,14 @@ const buttons = [
   font-family: "MyFont", Verdana, sans-serif;
   letter-spacing: 2px;
   font-size: 42px;
+  margin: 32px;
+  text-align: center;
+}
+
+.paper-sub-title {
+  font-family: "MyFont", Verdana, sans-serif;
+  letter-spacing: 2px;
+  font-size: 36px;
   margin: 32px;
   text-align: center;
 }

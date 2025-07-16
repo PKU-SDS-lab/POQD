@@ -3,11 +3,11 @@ export default {
   data() {
     return {
       bibtex: [
-        "@article{junyaohu2023template,",
-        "    title={Academic Project Page Template Vue},",
-        "    author={Hu, Junyao},",
-        "    journal={GitHub},",
-        "    year={2023}",
+        "@inproceedings{chen2025core,",
+        "  title={Core Context Aware Transformers for Long Context Language Modeling}, ",
+        "  author={Yaofo Chen and Zeng You and Shuhai Zhang and Haokun Li and Yirui Li and Yaowei Wang and Mingkui Tan},",
+        "  booktitle={International Conference on Machine Learning},",
+        "  year={2025}",
         "}",
       ],
     }

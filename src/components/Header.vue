@@ -6,28 +6,24 @@ import { HomeFilled, SuccessFilled } from '@element-plus/icons-vue'
 // 个人主页
 const home = {
     name: "My Blog",
-    link: "https://junyaohu.github.io/",
+    link: "https://www.youzeng.com.cn/",
 }
 
 // 项目主页
 const logo = {
-    name: "Template",
+    name: "CCA-Attention",
     link: "#",
 }
 
 // 右侧更多菜单
 const more_paper = {
-    "ExtDM": {
-        name: "ExtDM - CVPR 2024",
-        link: "https://zzcheng.top/ExtDM/",
+    "FDVS": {
+        name: "FDVS - IEEE TCSVT 2024",
+        link: "https://bolixinyu.github.io/FDVS/",
     },
-    "MPOT": {
-        name: "MPOT - ICCV 2023",
-        link: "https://zzcheng.top/MPOT/",
-    },
-    "ControlNet": {
-        name: "ControlNet - ICCV 2023",
-        link: "https://github.com/lllyasviel/ControlNet",
+    "DGA": {
+        name: "DGA - ICML 2025",
+        link: "https://github.com/bolixinyu/DynamicGroupAttention",
     }
 }
 
@@ -60,13 +56,10 @@ const more_paper = {
         <el-sub-menu index="2">
             <template #title>More</template>
             <el-menu-item index="2-1">
-                <a :href=more_paper.ExtDM.link>{{ more_paper.ExtDM.name }}</a>
+                <a :href=more_paper.FDVS.link>{{ more_paper.FDVS.name }}</a>
             </el-menu-item>
             <el-menu-item index="2-2">
-                <a :href=more_paper.MPOT.link>{{ more_paper.MPOT.name }}</a>
-            </el-menu-item>
-            <el-menu-item index="2-3">
-                <a :href=more_paper.ControlNet.link>{{ more_paper.ControlNet.name }}</a>
+                <a :href=more_paper.DGA.link>{{ more_paper.DGA.name }}</a>
             </el-menu-item>
         </el-sub-menu>
 

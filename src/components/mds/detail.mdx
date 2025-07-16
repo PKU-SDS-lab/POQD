@@ -1,0 +1,18 @@
+# Method Details
+![Figure 2](./imgs/method.png)  
+*Figure: Architecture of CCA-Attention with two complementary modules*
+
+## 1. Globality-aware Pooling Module
+
+**Dynamic Token Compression**: Groups input tokens and compresses each group into a *core token* via importance-weighted pooling.  
+**Linear Complexity**: Reduces attention computation from $O(L^2)$ to $O(Lm)$ (where $m = L/g$).  
+
+## 2. Locality-preserving Module  
+
+**Neighborhood Focus**: Captures fine-grained local context by attending to $$s$$ nearest tokens.  
+**Complementary to Global Context**: Ensures no loss of critical local information.  
+
+## 3. Differentiable Fusion  
+
+Combines global (core tokens) and local (neighbor tokens) attention scores.  
+**Full Reachability Guarantee**: Each token can access all preceding tokens.  

@@ -23,9 +23,9 @@ We tested POQD on various QA benchmarks -- including single-hop, multi-hop, imag
 | Method                            | Sub-Queries                                 | Result                                             |
 | --------------------------------- | ------------------------------------------- | -------------------------------------------------- |
 | ColBERT                           | ["Victoria", "Hong", "Kong", "buildings"]   | ❌ Matches "Kong" dark regions resembling a gorilla |
-| --------------------------------- | ------------------------------------------- | -------------------------------------------------- |
+|                                   |                                             |                                                     |
 | ICL-QD (craft prompts for LLMs  ) | ["Victoria Hong Kong", "buildings", "type"] | ⚠️ Extra token "type" adds noise                    |
-| --------------------------------- | ------------------------------------------- | -------------------------------------------------- |
+|                                   |                                             |                                                     |
 | **POQD**                          | **["Victoria Hong Kong", "buildings"]**     | ✅ Correctly retrieves skyscraper images            |
 
 POQD filters out noisy sub-queries and preserves meaningful semantic units.

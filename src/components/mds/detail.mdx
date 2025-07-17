@@ -20,6 +20,7 @@ POQD is built around a novel optimization framework designed to automatically di
 | Component            | Role                                                         |
 | -------------------- | ------------------------------------------------------------ |
 | **Query Decomposer** | Leverages a large language model (LLM) to transform the input query into a set of sub-queries, using a learnable prompt. It adaptively selects salient token groups and determines the optimal decomposition granularity. |
+|    |    |
 | **Prompt Optimizer** | A second LLM responsible for learning and refining the prompt fed into the decomposer. It updates the prompt to maximize downstream performance , without relying on gradient-based learning. |
 
 
